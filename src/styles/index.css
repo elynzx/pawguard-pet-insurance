@@ -5,7 +5,7 @@
     --font-heading: "Fredoka", sans-serif;
     --font-primary: "Karla", sans-serif;
 
-    --color-c-yellow: #eaba52;
+    --color-c-yellow: #ffcb1f;
     --color-c-light-yellow: #fff3cc;
     --color-c-blue: #94b6f1;
     --color-c-light-blue: #e5eeff;
@@ -17,11 +17,7 @@ body {
     min-height: 100vh;
     font-family: var(--font-primary);
     color: var(--color-c-dark-gray);
-    font-size: 14px;
-}
-
-button {
-    cursor: pointer;
+    font-size: 16px;
 }
 
 @layer utilities {
@@ -48,5 +44,20 @@ button {
             color: var(--color-c-dark-gray);
             font-family: var(--font-heading);
         }
+    }
+
+    .btn-base {
+        width: 180px;
+        border-radius: var(--radius-3xl);
+        font-weight: var(--font-weight-black);
+        font-family: var(--font-heading);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1rem;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+        letter-spacing: 0.5px;
     }
 }
