@@ -1,12 +1,16 @@
 import { Outlet } from "react-router";
 import { Header } from "../components/header/header";
+import { Footer } from "../components/footer/footer";
 
 export function MainLayout() {
 
   return (
-    <div className="h-screen w-full bg-c-light-yellow">
+    <div className="min-h-screen w-full flex flex-col">
       <Header />
-      <Outlet />
+      <main className="grow">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }
