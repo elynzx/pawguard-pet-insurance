@@ -15,9 +15,8 @@ export const Header = () => {
   const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
-    <header className="w-full h-16 md:h-24 bg-c-light-blue flex justify-center items-center sticky top-0 z-50">
-
-      <div className="hidden md:flex items-center justify-between w-full max-w-7xl px-6">
+    <header className="w-full h-16 md:h-20 bg-c-light-blue flex justify-center items-center sticky top-0 z-50">
+      <div className="w-full md:max-w-432 px-4 md:px-30 hidden md:flex items-center justify-between">
         <img src={Logo} alt="PawGuard Logo" className="w-40" />
         <div className="flex gap-8 items-center">
           <nav className="flex gap-3">
@@ -34,7 +33,7 @@ export const Header = () => {
           <div className="p-2 hover:bg-white rounded-full cursor-pointer transition-colors">
             <UserIcon size={22} weight="bold" />
           </div>
-          <button className="btn-base bg-c-yellow">Iniciar Sesión</button>
+          <button className="btn-base bg-c-yellow hover:brightness-105 transition-all">Iniciar Sesión</button>
         </div>
       </div>
 
