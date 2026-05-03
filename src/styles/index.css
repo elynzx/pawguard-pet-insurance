@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
+@import "./animation.css";
 
 @theme {
     --font-heading: "Fredoka", sans-serif;
@@ -9,7 +10,8 @@
     --color-c-light-yellow: #fff3cc;
     --color-c-blue: #94b6f1;
     --color-c-light-blue: #e5eeff;
-    --color-c-dark-gray: #2e2e2e;
+    --color-c-dark-blue: #788fc0;
+    --color-c-dark-gray: #313131;
 }
 
 body {
@@ -31,21 +33,6 @@ body {
 }
 
 @layer components {
-    .typography {
-        h1 {
-            font-size: var(--text-4xl);
-            color: var(--color-c-dark-gray);
-            font-family: var(--font-heading);
-            font-weight: var(--font-weight-black);
-        }
-        h2 {
-            font-size: var(--text-2xl);
-            font-weight: var(--font-weight-semibold);
-            color: var(--color-c-dark-gray);
-            font-family: var(--font-heading);
-        }
-    }
-
     .btn-base {
         width: 180px;
         border-radius: var(--radius-3xl);

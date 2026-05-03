@@ -1,0 +1,55 @@
+@layer utilities {
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    @keyframes fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(-16px);
+        }
+        50% {
+            transform: translateY(-24px);
+        }
+    }
+
+    @keyframes shine {
+        from {
+            left: -100%;
+        }
+        to {
+            left: 200%;
+        }
+    }
+
+    .animate-fade-up {
+        animation: fade-up 0.6s ease-out forwards;
+    }
+
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .animate-shine {
+        animation: shine 1.5s infinite;
+    }
+
+    .animate-marquee {
+        animation: marquee 30s linear infinite;
+    }
+}
