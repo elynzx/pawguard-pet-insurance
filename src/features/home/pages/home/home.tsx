@@ -1,5 +1,34 @@
+import { Hero } from "../../components/hero/hero";
+import { Discounts } from "../../components/discounts/discounts";
+import { Banner } from "../../components/banner/banner";
+import { Faq } from "../../components/faq/faq";
+import { Benefits } from "../../components/benefits/benefits";
+import { Pricing } from "../../components/pricing/pricing";
+import { PawPrintIcon, CatIcon, DogIcon } from "@phosphor-icons/react";
+
 export function HomePage() {
   return (
-    <div>Homepage </div>
+    <div className="min-h-screen bg-white relative overflow-hidden">
+
+      <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden opacity-[0.12]">
+        <PawPrintIcon size={150} weight="fill" className="absolute text-c-blue top-[6%] right-16 rotate-12" />
+        <DogIcon size={100} weight="bold" className="absolute text-c-blue top-[32%] right-25 rotate-[-15deg]" />
+        <CatIcon size={120} weight="bold" className="absolute text-c-blue top-[16%] left-25 rotate-[-15deg]" />
+        <PawPrintIcon size={150} weight="fill" className="absolute text-c-blue top-[45%] left-[5%] rotate-45" />
+        <PawPrintIcon size={150} weight="fill" className="absolute text-c-blue top-[65%] right-12 rotate-110" />
+        <CatIcon size={160} weight="bold" className="absolute text-c-blue top-[82%] left-[2%] rotate-[-10deg]" />
+        <PawPrintIcon size={80} weight="fill" className="absolute text-c-blue top-[92%] right-[10%] rotate-12" />
+      </div>
+
+      <Hero />
+
+      <main className="w-full md:max-w-432 px-4 md:px-30 flex flex-col gap-15 relative z-30 mx-auto">
+        <Discounts />
+        <Banner />
+        <Pricing />
+        <Benefits />
+        <Faq />
+      </main>
+    </div>
   )
 }
