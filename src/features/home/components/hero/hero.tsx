@@ -33,9 +33,9 @@ const HeroForm = () => {
 
 export const Hero = () => {
   return (
-    <section className="relative w-full h-240 md:h-190 bg-c-light-blue flex items-start overflow-hidden z-10">
+    <section className="relative w-full h-240 md:h-210 bg-c-light-blue flex items-start overflow-hidden z-10">
 
-      <div className="w-full md:max-w-432 px-4 grid grid-cols-1 md:grid-cols-2 z-10 gap-36 md:pt-10 ml-22">
+      <div className="w-full md:max-w-432 px-4 grid grid-cols-1 md:grid-cols-2 z-10 gap-36 md:mt-28 ml-22">
         <div className="md:col-start-2 col-span-1 flex flex-col gap-7 items-start">
           <div className="space-y-6">
             <h1 className="font-heading text-5xl font-black text-c-dark-gray">

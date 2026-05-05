@@ -37,10 +37,10 @@ export const Faq = () => {
       </div>
 
       <div className="relative flex justify-center items-center mt-30 order-1 lg:order-2">
-        <div className="relative z-10 w-full max-w-sm lg:max-w-md drop-shadow-2xl">
+        <div className="relative z-10 w-full max-w-sm md:max-w-md drop-shadow-2xl">
           <img
             src={FaqImagen}
-            alt="Mascotas felices"
+            alt="Perro pequeño descansando"
             className="w-full h-auto object-contain"
           />
         </div>
