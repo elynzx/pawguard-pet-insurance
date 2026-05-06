@@ -4,10 +4,10 @@ export const FaqBlob = () => {
     viewBox="0 0 672 747"
     fill="none"
     xmlns="w3.org"
-    className="absolute z-0 w-full h-auto max-w-none opacity-80 pointer-events-none">
+    className="absolute z-0 w-full h-auto max-w-none opacity-80 pointer-events-none fill-secondary-light">
 
       <path d="M453.791 151.118C528.643 214.805 619.668 261.077 654.784 338.695C689.9 416.313 669.108 524.281 612.275 591.948C555.443 659.615 463.032 685.985 376.628 712.355C289.761 738.227 209.364 764.1 155.766 732.257C102.629 700.911 76.2923 612.845 50.4172 537.715C24.5422 462.585 -1.33284 400.391 0.0533189 334.714C1.43948 269.535 30.5489 200.873 78.6025 132.212C127.118 63.5496 194.578 -5.60984 257.88 0.360757C320.719 6.82891 378.938 87.432 453.791 151.118Z" 
-      fill="#DEF0FF" />
+/>
     </svg >
   )
 }

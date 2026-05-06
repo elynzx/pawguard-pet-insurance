@@ -10,7 +10,7 @@ export const CurvedText = () => {
         fill="none"
         d="M 50,78 Q 200,180 350,80" 
       />
-      <text className="fill-current text-c-dark-gray/80 font-heading font-black text-2xl">
+      <text className="fill-current text-primary/80 font-heading font-black text-2xl">
         <textPath 
           href="#curvePath" 
           startOffset="50%" 
