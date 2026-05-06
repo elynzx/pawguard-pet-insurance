@@ -6,19 +6,17 @@
     --font-heading: "Fredoka", sans-serif;
     --font-primary: "Karla", sans-serif;
 
-    --color-c-yellow: #ffcb1f;
-    --color-c-light-yellow: #fff3cc;
-    --color-c-blue: #85CCFF;
-    --color-c-light-blue: #DEF0FF;
-    --color-c-dark-blue: #408FC7;
-    --color-c-dark-gray: #313131;
+    --color-tertiary: #FFC654;
+    --color-secondary: #219ebc;
+    --color-secondary-light: #C8EAF7;
+    --color-primary: #133F54;
 }
 
 body {
     min-width: 320px;
     min-height: 100vh;
     font-family: var(--font-primary);
-    color: var(--color-c-dark-gray);
+    color: var(--color-primary);
     font-size: 16px;
 }
 
