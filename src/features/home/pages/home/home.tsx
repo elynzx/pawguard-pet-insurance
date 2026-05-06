@@ -11,13 +11,14 @@ export function HomePage() {
     <div className="min-h-screen bg-white relative overflow-hidden">
 
       <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden opacity-[0.12]">
-        <PawPrintIcon size={150} weight="fill" className="absolute text-c-blue top-[6%] right-16 rotate-12" />
-        <DogIcon size={100} weight="bold" className="absolute text-c-blue top-[32%] right-25 rotate-[-15deg]" />
-        <CatIcon size={120} weight="bold" className="absolute text-c-blue top-[16%] left-25 rotate-[-15deg]" />
-        <PawPrintIcon size={150} weight="fill" className="absolute text-c-blue top-[45%] left-[5%] rotate-45" />
-        <PawPrintIcon size={150} weight="fill" className="absolute text-c-blue top-[65%] right-12 rotate-110" />
-        <CatIcon size={160} weight="bold" className="absolute text-c-blue top-[82%] left-[2%] rotate-[-10deg]" />
-        <PawPrintIcon size={80} weight="fill" className="absolute text-c-blue top-[92%] right-[10%] rotate-12" />
+        <PawPrintIcon size={150} weight="fill" className="absolute text-secondary top-[2%] left-24 rotate-[-25deg]" />
+        <PawPrintIcon size={150} weight="fill" className="absolute text-secondary top-[9%] right-26 rotate-18" />
+        <DogIcon size={110} weight="bold" className="absolute text-secondary top-[32%] right-25 rotate-15" />
+        <CatIcon size={120} weight="bold" className="absolute text-secondary top-[20%] left-25 rotate-[-15deg]" />
+        <PawPrintIcon size={150} weight="fill" className="absolute text-secondary top-[45%] left-[5%] rotate-45" />
+        <PawPrintIcon size={150} weight="fill" className="absolute text-secondary top-[65%] right-12 rotate-110" />
+        <CatIcon size={160} weight="bold" className="absolute text-secondary top-[82%] left-[2%] rotate-[-10deg]" />
+        <PawPrintIcon size={80} weight="fill" className="absolute text-secondary top-[92%] right-[10%] rotate-12" />
       </div>
 
       <Hero />
