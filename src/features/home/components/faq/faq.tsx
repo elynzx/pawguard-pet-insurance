@@ -17,18 +17,18 @@ export const Faq = () => {
     <section className="w-full md:px-10 flex flex-col md:flex-row items-start justify-center md:justify-between gap-18 py-12">
 
       <div className="w-3xl relative z-10 order-2 lg:order-1 flex flex-col items-center">
-        <h2 className="text-4xl font-black mb-2 font-heading text-c-dark-gray">Preguntas Frecuentes</h2>
-        <p className="text-c-blue font-semibold mb-8 text-lg">Todo lo que necesitas saber sobre PawGuard</p>
+        <h2 className="text-4xl font-black mb-2 font-heading text-primary">Preguntas Frecuentes</h2>
+        <p className="text-secondary font-semibold mb-8 text-lg">Todo lo que necesitas saber sobre PawGuard</p>
         <div className="w-full space-y-2 overflow-y-auto pr-4 scrollbar-hide">
           {FAQ_DATA.map((faq) => (
-            <details key={faq.q} className="w-full group border-b border-c-light-blue pb-4 transition-all">
+            <details key={faq.q} className="w-full group border-b border-secondary-light pb-4 transition-all">
               <summary className="flex justify-between items-center cursor-pointer list-none py-3">
-                <span className="font-bold text-lg text-c-dark-gray group-hover:text-c-blue transition-colors leading-tight">
+                <span className="font-bold text-lg text-primary group-hover:text-secondary transition-colors leading-tight">
                   {faq.q}
                 </span>
-                <CaretDownIcon size={20} className="group-open:rotate-180 transition-transform text-c-blue" />
+                <CaretDownIcon size={20} className="group-open:rotate-180 transition-transform text-secondary" />
               </summary>
-              <p className="mt-2 text-c-dark-gray/80 leading-relaxed text-sm animate-fade-down">
+              <p className="mt-2 text-primary/80 leading-relaxed text-sm animate-fade-down">
                 {faq.a}
               </p>
             </details>

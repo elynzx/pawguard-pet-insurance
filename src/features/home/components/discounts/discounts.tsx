@@ -21,15 +21,15 @@ const SERVICES: Service[] = [
 const styles = {
   card: "flex flex-col items-center mx-8 min-w-30 group",
   iconContainer: "relative flex items-center justify-center w-24 h-24 mb-2 transition-transform duration-300 group-hover:-translate-y-2",
-  badge: "absolute -top-1 -right-1 bg-c-yellow text-c-dark-gray text-sm font-black px-3 py-1 rounded-lg shadow-lg rotate-12 group-hover:rotate-0 transition-transform",
-  label: "font-bold text-c-dark-gray text-center font-heading text-lg"
+  badge: "absolute -top-1 -right-1 bg-tertiary text-primary text-sm font-black px-3 py-1 rounded-lg shadow-lg rotate-12 group-hover:rotate-0 transition-transform",
+  label: "font-bold text-primary text-center font-heading text-lg"
 };
 
 export const Discounts = () => {
   return (
     <section className="w-full py-4 overflow-hidden">
       <div className="flex flex-col items-center mb-10 text-center px-4 gap-3">
-        <h2 className="text-4xl font-black text-c-dark-gray font-heading mt-4">
+        <h2 className="text-4xl font-black text-primary font-heading mt-4">
           Mucho más que un seguro
         </h2>
         <p className="text-gray-500 max-w-md mt-4">
@@ -47,7 +47,7 @@ export const Discounts = () => {
               <div key={`${item.name}-${index}`} className={styles.card}>
                 <div className={styles.iconContainer}>
                   <IconBlob />
-                  <div className="relative z-10 text-c-dark-gray group-hover:text-c-blue transition-colors">
+                  <div className="relative z-10 text-primary group-hover:text-secondary transition-colors">
                     <Icon size={35} weight="bold" />
                   </div>
                   <div className={styles.badge}>{item.discount}</div>

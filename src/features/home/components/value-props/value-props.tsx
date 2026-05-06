@@ -26,18 +26,18 @@ export const ValueProps = () => {
           >
             <div className="absolute inset-0 bg-linear-to-br from-white via-white to-gray-50 opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative flex items-center gap-5 p-5 bg-white rounded-[22px]">
-              <div className="shrink-0 w-14 h-14 rounded-2xl bg-c-blue/10 flex items-center justify-center text-c-blue group-hover:scale-110 transition-transform duration-500">
+              <div className="shrink-0 w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform duration-500">
                 <Icon size={32} weight="duotone" />
               </div>
               <div className="flex flex-col">
-                <h4 className="font-black text-c-dark-gray text-lg leading-tight tracking-tight">
+                <h4 className="font-black text-primary text-lg leading-tight tracking-tight">
                   {item.title}
                 </h4>
                 <p className="text-sm font-medium text-gray-400 mt-0.5">
                   {item.description}
                 </p>
               </div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-c-blue group-hover:w-1/2 transition-all duration-300 rounded-full" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-secondary group-hover:w-1/2 transition-all duration-300 rounded-full" />
             </div>
           </div>
         );

@@ -16,7 +16,7 @@ export function Footer() {
   const fullYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full bg-linear-to-t from-c-blue/90 to-c-light-blue pt-10 mt-70">
+    <footer className="relative w-full bg-linear-to-b from-secondary-light via-secondary-light to-secondary pt-10 mt-70">
 
       <div className="absolute bottom-full left-0 w-full -mb-px">
         <FooterWaves />
@@ -35,7 +35,7 @@ export function Footer() {
 
           <div className="col-span-1 md:col-span-2 space-y-6 flex flex-col items-center md:items-start">
             <img src={Logo} alt="Logo" className="h-10" />
-            <p className="text-c-dark-gray max-w-sm font-semibold text-lg leading-snug">
+            <p className="text-primary max-w-sm font-semibold text-lg leading-snug">
               Cuidamos a los que siempre te esperan con el corazón.
             </p>
             <div className="flex gap-4">
@@ -48,7 +48,7 @@ export function Footer() {
                 <a 
                   key={i} 
                   href={social.href} 
-                  className="p-3 bg-white/90 backdrop-blur-sm rounded-full text-c-blue shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+                  className="p-3 bg-white/80 backdrop-blur-sm rounded-full text-secondary shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
                 >
                   <social.Icon size={24} weight="fill" />
                 </a>
@@ -57,8 +57,8 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-black text-c-dark-gray mb-6 tracking-tight uppercase text-sm">Soporte</h4>
-            <ul className="space-y-4 text-c-dark-gray font-bold text-sm">
+            <h4 className="font-black text-primary mb-6 tracking-tight uppercase text-sm">Soporte</h4>
+            <ul className="space-y-4 text-primary font-bold text-sm">
               <li><a href="#" className="hover:text-white transition-colors">Preguntas frecuentes</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Beneficios</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Libro de reclamaciones</a></li>
@@ -67,8 +67,8 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-black text-c-dark-gray mb-6 tracking-tight uppercase text-sm">Contáctanos</h4>
-            <ul className="space-y-4 text-c-dark-gray font-bold text-sm">
+            <h4 className="font-black text-primary mb-6 tracking-tight uppercase text-sm">Contáctanos</h4>
+            <ul className="space-y-4 text-primary font-bold text-sm">
               <li className="flex items-center gap-3">
                 <PhoneCallIcon size={20} weight="bold" />
                 <span>Lima: (01) 213-3333</span>
@@ -87,7 +87,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex py-8 justify-center items-center text-xs md:text-sm text-c-dark-gray font-bold">
+        <div className="flex py-8 justify-center items-center text-xs md:text-sm text-white font-bold">
           <p>© {fullYear} Pawguard Lima. Todos los derechos reservados.</p>
         </div>
       </div>
