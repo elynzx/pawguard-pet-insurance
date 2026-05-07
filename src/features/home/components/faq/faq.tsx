@@ -14,12 +14,12 @@ export const FAQ_DATA = [
 
 export const Faq = () => {
   return (
-    <section className="w-full md:px-10 flex flex-col md:flex-row items-start justify-center md:justify-between gap-18 py-12">
+    <section className="w-full md:px-10 flex flex-col md:flex-row items-center md:items-start md:justify-between md:gap-1 h-320 md:h-180">
 
-      <div className="w-3xl relative z-10 order-2 lg:order-1 flex flex-col items-center">
-        <h2 className="text-4xl font-black mb-2 font-heading text-primary">Preguntas Frecuentes</h2>
-        <p className="text-secondary font-semibold mb-8 text-lg">Todo lo que necesitas saber sobre PawGuard</p>
-        <div className="w-full space-y-2 overflow-y-auto pr-4 scrollbar-hide">
+      <div className="md:w-3xl relative z-10 order-2 lg:order-1 flex flex-col items-center">
+        <h2 className="text-4xl font-black mb-6 font-heading text-primary">Preguntas Frecuentes</h2>
+        <p className="text-secondary font-semibold mb-8 md:mb-12 text-xl text-center md:text-start">Todo lo que necesitas saber sobre PawGuard</p>
+        <div className="w-full space-y-2 overflow-y-auto md:pr-4 scrollbar-hide px-5 md:px-0">
           {FAQ_DATA.map((faq) => (
             <details key={faq.q} className="w-full group border-b border-secondary-light pb-4 transition-all">
               <summary className="flex justify-between items-center cursor-pointer list-none py-3">
@@ -36,12 +36,12 @@ export const Faq = () => {
         </div>
       </div>
 
-      <div className="relative flex justify-center items-center mt-30 order-1 lg:order-2">
+      <div className="relative flex justify-center items-center mt-30 order-1 lg:order-2 mb-25 md:mb-0">
         <div className="relative z-10 w-full max-w-sm md:max-w-md drop-shadow-2xl">
           <img
             src={FaqImagen}
             alt="Perro pequeño descansando"
-            className="w-full h-auto object-contain"
+            className="w-80 md:w-full h-auto object-contain"
           />
         </div>
         <div className="absolute inset-0 flex justify-center items-center">

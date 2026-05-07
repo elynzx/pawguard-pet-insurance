@@ -16,7 +16,7 @@ export function Footer() {
   const fullYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full bg-linear-to-b from-secondary-light via-secondary-light to-secondary pt-10 mt-70">
+    <footer className="relative w-full bg-linear-to-b from-secondary-light md:via-secondary-light to-secondary pt-10 mt-70 md:mt-90">
 
       <div className="absolute bottom-full left-0 w-full -mb-px">
         <FooterWaves />
@@ -66,9 +66,9 @@ export function Footer() {
             <img src={Book} alt="Libro de reclamaciones" className="mt-6 h-12 grayscale hover:grayscale-0 transition-all cursor-pointer" />
           </div>
 
-          <div className="flex flex-col items-center md:items-start">
-            <h4 className="font-black text-primary mb-6 tracking-tight uppercase text-sm">Contáctanos</h4>
-            <ul className="space-y-4 text-primary font-bold text-sm">
+          <div className="flex flex-col items-center md:items-start text-white md:text-primary">
+            <h4 className="font-black mb-6 tracking-tight uppercase text-sm">Contáctanos</h4>
+            <ul className="space-y-4 font-bold text-sm">
               <li className="flex items-center gap-3">
                 <PhoneCallIcon size={20} weight="bold" />
                 <span>Lima: (01) 213-3333</span>

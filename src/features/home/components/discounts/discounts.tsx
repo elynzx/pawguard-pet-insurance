@@ -27,7 +27,7 @@ const styles = {
 
 export const Discounts = () => {
   return (
-    <section className="w-full py-4 overflow-hidden">
+    <section className="w-full overflow-hidden">
       <div className="flex flex-col items-center mb-10 text-center px-4 gap-3">
         <h2 className="text-4xl font-black text-primary font-heading mt-4">
           Mucho más que un seguro

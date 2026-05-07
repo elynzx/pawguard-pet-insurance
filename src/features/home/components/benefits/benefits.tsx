@@ -33,13 +33,13 @@ const BENEFITS = [
 
 export const Benefits = () => {
   return (
-    <section className="w-full md:px-10 py-16">
-      <div className="text-center mb-12">
+    <section className="w-full md:px-10">
+      <div className="text-center mb-12 md:mb-20">
         <h2 className="text-4xl font-black text-primary font-heading">
           Beneficios incluidos en <span className="text-secondary">todos los planes</span>
         </h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-6 md:px-0">
         {BENEFITS.map((benefit) => (
           <div
             key={benefit.id}

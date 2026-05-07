@@ -6,7 +6,7 @@ import { BoneIcon } from "@phosphor-icons/react"
 export const Banner = () => {
   return (
     <section className="w-full overflow-hidden relative">
-      <div className="flex w-full md:max-w-432 px-4 md:px-30 gap-20 items-center">
+      <div className="flex flex-col md:flex-row w-full md:max-w-432 px-4 md:px-30 gap-10 md:gap-20 items-center">
         <div className="flex-1 flex flex-col items-center jusify-start relative z-10 gap-2">
           <BoneIcon size={80} className="absolute top-3 text-secondary/80"/>
           <CurvedText />
@@ -18,9 +18,9 @@ export const Banner = () => {
           </p>
         </div>
 
-        <div className="flex-1 relative flex justify-center items-center h-170">
+        <div className="flex-1 relative flex justify-center items-center ">
           <img
-            className="relative z-10 h-150 object-contain"
+            className="relative z-10 h-100 md:h-150 object-contain"
             src={BannerImage}
             alt="Mascotas felices"
           />
