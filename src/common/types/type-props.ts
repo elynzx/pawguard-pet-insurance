@@ -7,7 +7,7 @@ export type DistrictRow = Database['public']['Tables']['districts']['Row']
 
 export interface PlanProps extends PlanRow {
     showBadge?: boolean;
-    buttonLabel: string;
+    buttonLabel?: string;
     onClick?: ()=> void;
     isSelected?: boolean;
 }
@@ -16,6 +16,6 @@ export interface ProfileProps extends ProfileRow {
 
 }
 
-export interface PetProps extends ProfileRow {
+export interface PetProps extends PetRow {
     
 }
