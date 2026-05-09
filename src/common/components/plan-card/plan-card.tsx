@@ -8,7 +8,7 @@ const CARD_VARIANTS = {
         icon: "text-secondary",
     },
     inactive: {
-        container: "bg-secondary-light/20 border-3 border-transparent hover:border-secondary-light cursor-pointer",
+        container: "border-3 border-secondary/10 hover:border-secondary-light cursor-pointer",
         button: "bg-white border-2 border-secondary/20 text-secondary hover:border-secondary hover:bg-secondary/5",
         icon: "text-secondary-light",
     },
@@ -31,7 +31,7 @@ export const PlanCard = ({
     return (
         <article
             onClick={onClick}
-            className={`relative p-8 rounded-2xl transition-all duration-500 flex flex-col h-full ${style.container}`}
+            className={`relative shadow-sm h-120  bg-white p-8 rounded-2xl transition-all duration-500 flex flex-col ${style.container}`}
         >
             {recommended && showBadge && (
                 <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-secondary text-white text-md font-bold py-2 px-8 rounded-full z-20 shadow-sm">
@@ -39,7 +39,7 @@ export const PlanCard = ({
                 </div>
             )}
 
-            <div className="mb-8 relative z-10">
+            <div className="mb-8 relative z-10 ">
                 <h3 className="text-2xl font-heading font-black text-primary mb-2">
                     {name}
                 </h3>
@@ -67,9 +67,9 @@ export const PlanCard = ({
             </ul>
 
             <button
-                className={`btn-base w-full transition-all active:scale-95 relative z-10 py-3 rounded-xl font-bold ${style.button}`}
+                className={`btn-base w-full transition-all active:scale-95 relative z-10 font-bold ${style.button}`}
             >
-                {isSelected ? "Elegido" : buttonLabel}
+                {isSelected ? "Continuar compra" : buttonLabel}
             </button>
         </article>
     );
