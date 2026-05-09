@@ -11,7 +11,7 @@ const hero_benefits = [
 
 const HeroForm = () => {
   return (
-    <div className="col-span-2 bg-white p-6 rounded-2xl shadow-xl shadow-blue-900/5 max-w-md md:max-w-sm text-sm w-full border-2 border-secondary/40">
+    <div id="hero-form" className="col-span-2 bg-white p-6 rounded-2xl shadow-xl shadow-blue-900/5 max-w-md md:max-w-sm text-sm w-full border-2 border-secondary/40">
       <div className="flex flex-col gap-3">
         <input
           type="text"
@@ -33,7 +33,7 @@ const HeroForm = () => {
 
 export const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen md:h-220 bg-linear-to-b from-secondary-light via-secondary-light to-secondary/70 flex items-start overflow-hidden z-10">
+    <section id="hero-section" className="relative w-full min-h-screen md:h-220 bg-linear-to-b from-secondary-light via-secondary-light to-secondary/70 flex items-start overflow-hidden z-10">
 
       <div className="w-full md:max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 z-10 gap-6 mt-10 md:mt-24">
         <div className="md:col-start-1 col-span-1 flex flex-col gap-7 md:items-start">

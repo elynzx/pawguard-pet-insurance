@@ -14,8 +14,7 @@ export const FAQ_DATA = [
 
 export const Faq = () => {
   return (
-    <section className="w-full md:px-10 flex flex-col md:flex-row items-center md:items-start md:justify-between md:gap-1 h-320 md:h-180">
-
+    <section className="w-full md:max-w-432 px-4 md:px-30  flex flex-col md:flex-row items-center md:items-start md:justify-between md:gap-1 h-320 md:h-180">
       <div className="md:w-3xl relative z-10 order-2 lg:order-1 flex flex-col items-center">
         <h2 className="text-4xl font-black mb-6 font-heading text-primary">Preguntas Frecuentes</h2>
         <p className="text-secondary font-semibold mb-8 md:mb-12 text-xl text-center md:text-start">Todo lo que necesitas saber sobre PawGuard</p>

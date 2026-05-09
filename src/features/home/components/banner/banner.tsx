@@ -5,8 +5,8 @@ import { BoneIcon } from "@phosphor-icons/react"
 
 export const Banner = () => {
   return (
-    <section className="w-full overflow-hidden relative">
-      <div className="flex flex-col md:flex-row w-full md:max-w-432 px-4 md:px-30 gap-10 md:gap-20 items-center">
+    <section className="w-full overflow-hidden relative md:max-w-432 px-4 md:px-30 ">
+      <div className="flex flex-col md:flex-row w-full gap-10 md:gap-20 items-center">
         <div className="flex-1 flex flex-col items-center jusify-start relative z-10 gap-2">
           <BoneIcon size={80} className="absolute top-3 text-secondary/80"/>
           <CurvedText />

@@ -33,7 +33,7 @@ const BENEFITS = [
 
 export const Benefits = () => {
   return (
-    <section className="w-full md:px-10">
+    <section id="beneficios" className="w-full md:max-w-432 px-4 md:px-30 md:py-12 ">
       <div className="text-center mb-12 md:mb-20">
         <h2 className="text-4xl font-black text-primary font-heading">
           Beneficios incluidos en <span className="text-secondary">todos los planes</span>
