@@ -3,9 +3,9 @@ import { Discounts } from "../../components/discounts/discounts";
 import { Banner } from "../../components/banner/banner";
 import { Faq } from "../../components/faq/faq";
 import { Benefits } from "../../components/benefits/benefits";
-
 import { PawPrintIcon, CatIcon, DogIcon } from "@phosphor-icons/react";
-import { Pricing } from "../../../../common/components/pricing/pricing";
+import { Plans } from "../../components/plans/plans";
+
 
 export function HomePage() {
   return (
@@ -24,10 +24,10 @@ export function HomePage() {
 
       <Hero />
 
-      <main className="w-full md:max-w-432 px-4 md:px-30 flex flex-col gap-40 md:gap-45 relative z-30 mx-auto">
+      <main className="w-full flex flex-col items-center gap-40 md:gap-45 relative z-10 mx-auto">
         <Discounts />
         <Banner />
-        <Pricing />
+        <Plans />
         <Benefits />
         <Faq />
       </main>
