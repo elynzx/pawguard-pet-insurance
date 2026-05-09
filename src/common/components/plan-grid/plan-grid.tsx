@@ -1,38 +1,74 @@
+import { useState } from "react";
 import { useGetPlans } from "../../hooks/use-plans";
 import { useCheckoutStore } from "../../store/use-checkout-store";
 import { PlanCard } from "../plan-card/plan-card";
 import type { PlanRow } from "../../types/type-props";
+import { CatIcon, DogIcon } from "@phosphor-icons/react";
 
 interface PlanGridProps {
   onPlanSelect?: (plan: PlanRow) => void;
+  initialSpecies?: "dog" | "cat";
 }
 
-export function PlanGrid({ onPlanSelect }: PlanGridProps) {
+const TabButton = ({ active, onClick, label, Icon }: any) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center gap-6 px-10 py-4 rounded-full transition-all duration-500
+        ${active ? "bg-tertiary text-primary shadow-xl" : "text-primary/50 hover:text-secondary hover:bg-secondary/5"}
+      `}
+    >
+      <Icon size={28} weight={"bold"} />
+      <span className="text-lg font-heading font-bold">{label}</span>
+    </button>
+  );
+};
+
+export const PlanGrid = ({
+  onPlanSelect,
+  initialSpecies
+}: PlanGridProps) => {
   const { plans, loading, error } = useGetPlans();
   const setSelectedPlan = useCheckoutStore((state) => state.setSelectedPlan);
   const selectedPlanId = useCheckoutStore((state) => state.selectedPlan?.id);
 
+  const [petType, setPetType] = useState<"dog" | "cat">("dog");
+  const activeSpecies = initialSpecies || petType;
+  const filteredPlans = plans.filter(
+    (plan) => plan.target_species === activeSpecies
+  );
+
   if (error)
     return (
-      <div className="text-center py-20 text-secondary">Ha ocurrido un error. Por favor intenta luego.</div>
+      <div className="text-center py-20 text-secondary font-medium">
+        Ha ocurrido un error. Por favor intenta más tarde.
+      </div>
     );
 
   return (
-    <section id="planes" className="w-full px-6 max-w-7xl mx-auto py-10">
-      {!onPlanSelect && (
-        <div className="text-center mb-12 md:mb-26 space-y-4 flex flex-col gap-4">
-          <h2 className="text-4xl md:text-5xl font-black text-primary font-heading tracking-tight">
-            Invierte en su felicidad
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg">
-            Planes diseñados por expertos para que nunca tengas que
-            elegir entre tu bolsillo y la salud de tu mascota.
-          </p>
+    <div className="mt-12">
+
+      {!initialSpecies && (
+        <div className="flex justify-center mb-20">
+          <div className="flex gap-12 bg-white/80 rounded-full shadow-inner border border-gray-100 p-1">
+            <TabButton
+              active={petType === "dog"}
+              onClick={() => setPetType("dog")}
+              label="Perros"
+              Icon={DogIcon}
+            />
+            <TabButton
+              active={petType === "cat"}
+              onClick={() => setPetType("cat")}
+              label="Gatos"
+              Icon={CatIcon}
+            />
+          </div>
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20 items-end">
-        {plans.map((plan) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        {filteredPlans.map((plan) => (
           <PlanCard
             key={plan.id}
             {...plan}
@@ -44,6 +80,6 @@ export function PlanGrid({ onPlanSelect }: PlanGridProps) {
           />
         ))}
       </div>
-    </section>
+    </div>
   );
-}
+};
