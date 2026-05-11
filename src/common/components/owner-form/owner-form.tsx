@@ -8,13 +8,35 @@ export const OwnerForm = ({ isReadOnlyEmail = false }) => {
   const { ownerData, setOwnerData } = useAppStore();
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
-      <FormInput label="Nombres" value={ownerData.first_name ?? ""} onChange={(e) => setOwnerData({ first_name: e.target.value })} required />
-      <FormInput label="Apellidos" value={ownerData.last_name ?? ""} onChange={(e) => setOwnerData({ last_name: e.target.value })} required />
-      <FormInput label="DNI" value={ownerData.dni ?? ""} onChange={(e) => setOwnerData({ dni: e.target.value })} maxLength={8} required />
-      <FormInput label="Celular" value={ownerData.phone ?? ""} onChange={(e) => setOwnerData({ phone: e.target.value })} maxLength={9} required />
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5">
+      <FormInput
+        label="Nombres"
+        value={ownerData.first_name ?? ""}
+        onChange={(e) => setOwnerData({ first_name: e.target.value })}
+        required
+      />
+      <FormInput
+        label="Apellidos"
+        value={ownerData.last_name ?? ""}
+        onChange={(e) => setOwnerData({ last_name: e.target.value })}
+        required
+      />
+      <FormInput
+        label="DNI"
+        value={ownerData.dni ?? ""}
+        onChange={(e) => setOwnerData({ dni: e.target.value })}
+        maxLength={8}
+        required
+      />
+      <FormInput
+        label="Celular"
+        value={ownerData.phone ?? ""}
+        onChange={(e) => setOwnerData({ phone: e.target.value })}
+        maxLength={9}
+        required
+      />
 
-      <div className="md:col-span-2">
+      <div className="md:col-span-2 w-full">
         <FormInput
           label="Email"
           value={ownerData.email ?? ""}
@@ -25,8 +47,21 @@ export const OwnerForm = ({ isReadOnlyEmail = false }) => {
         />
       </div>
 
-      <FormSelect label="Distrito" value={ownerData.district_id ?? ""} onChange={(val) => setOwnerData({ district_id: val })} options={districts.map(d => ({ value: d.id, label: d.name }))} />
-      <FormInput label="Dirección" value={ownerData.address ?? ""} onChange={(e) => setOwnerData({ address: e.target.value })} required />
+      <FormSelect
+        label="Distrito"
+        value={ownerData.district_id ?? ""}
+        onChange={(val) => setOwnerData({ district_id: val })}
+        options={districts.map((district) => ({
+          value: district.id,
+          label: district.name,
+        }))}
+      />
+      <FormInput
+        label="Dirección"
+        value={ownerData.address ?? ""}
+        onChange={(e) => setOwnerData({ address: e.target.value })}
+        required
+      />
     </div>
   );
 };
