@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { PetForm } from "../../../common/components/pet-form/pet-form";
 import { useUser } from "../../../common/providers/useUser";
 import { useAppStore } from "../../../common/store/use-app-store";
-import { useUpdatePet } from "../hooks/use-update-profile";
 import { AlertModal } from "../../../common/components/alert-modal/alert-modal";
+import { useUpdatePet } from "../hooks/use-update-pet";
 
 interface PetEditFormProps {
   onCancel: () => void;
@@ -11,43 +10,18 @@ interface PetEditFormProps {
 export const PetEditForm = ({ onCancel }: PetEditFormProps) => {
   const { petData } = useAppStore();
   const { user } = useUser();
-  const { updatePet, isUpdating } = useUpdatePet();
-
-  const [alertConfig, setAlertConfig] = useState({
-    isOpen: false,
-    type: "success" as "success" | "error",
-    title: "",
-    message: "",
-  });
+  const { update, isUpdating, error, success, reset } = useUpdatePet();
 
   const handleUpdate = () => {
     if (!user) return;
-
-    updatePet(user.id, petData)
-      .then(() => {
-        setAlertConfig({
-          isOpen: true,
-          type: "success",
-          title: "¡Mascota actualizada!",
-          message: "Los datos de tu compañero se guardaron correctamente.",
-        });
-      })
-      .catch((updateError) => {
-        setAlertConfig({
-          isOpen: true,
-          type: "error",
-          title: "Error al actualizar",
-          message: updateError.message || "No se pudo actualizar la mascota.",
-        });
-      });
+    update(user.id, petData);
   };
 
   const handleCloseAlert = () => {
-    setAlertConfig((previousAlertConfig) => ({ ...previousAlertConfig, isOpen: false }));
-    if (alertConfig.type === "success") {
-      onCancel();
-    }
+    reset();
+    if (success) onCancel();
   };
+
   return (
     <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-8">
       <PetForm />
@@ -67,11 +41,11 @@ export const PetEditForm = ({ onCancel }: PetEditFormProps) => {
         </button>
       </div>
       <AlertModal
-        isOpen={alertConfig.isOpen}
+        isOpen={success || !!error}
         onClose={handleCloseAlert}
-        type={alertConfig.type}
-        title={alertConfig.title}
-        message={alertConfig.message}
+        type={success ? "success" : "error"}
+        title={success ? "Datos actualizados" : "Error al actualizar"}
+        message={success ? "Los datos de tu mascota se guardaron correctamente." : error || ""}
       />
     </div>
   );

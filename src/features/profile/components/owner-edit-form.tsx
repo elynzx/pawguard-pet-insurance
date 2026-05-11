@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { OwnerForm } from "../../../common/components/owner-form/owner-form";
 import { useUser } from "../../../common/providers/useUser";
 import { useAppStore } from "../../../common/store/use-app-store";
-import { useUpdateOwner } from "../hooks/use-update-profile";
 import { AlertModal } from "../../../common/components/alert-modal/alert-modal";
+import { useUpdateOwner } from "../hooks/use-update-owner";
 
 interface Props {
   onCancel: () => void;
@@ -12,42 +11,16 @@ interface Props {
 export const OwnerEditForm = ({ onCancel }: Props) => {
   const { ownerData } = useAppStore();
   const { user } = useUser();
-  const { updateOwner, isUpdating } = useUpdateOwner();
-
-  const [alertConfig, setAlertConfig] = useState({
-    isOpen: false,
-    type: "success" as "success" | "error",
-    title: "",
-    message: "",
-  });
+  const { update, isUpdating, error, success, reset } = useUpdateOwner();
 
   const handleUpdate = () => {
     if (!user) return;
-
-    updateOwner(user.id, ownerData)
-      .then(() => {
-        setAlertConfig({
-          isOpen: true,
-          type: "success",
-          title: "¡Perfil actualizado!",
-          message: "Tus datos se guardaron correctamente en el sistema.",
-        });
-      })
-      .catch((updateError) => {
-        setAlertConfig({
-          isOpen: true,
-          type: "error",
-          title: "Error al actualizar",
-          message: updateError.message || "No se pudo guardar la información.",
-        });
-      });
+    update(user.id, ownerData);
   };
 
   const handleCloseAlert = () => {
-    setAlertConfig((previousAlertConfig) => ({ ...previousAlertConfig, isOpen: false }));
-    if (alertConfig.type === "success") {
-      onCancel();
-    }
+    reset();
+    if (success) onCancel();
   };
 
   return (
@@ -69,11 +42,11 @@ export const OwnerEditForm = ({ onCancel }: Props) => {
         </button>
       </div>
       <AlertModal
-        isOpen={alertConfig.isOpen}
+        isOpen={success || !!error}
         onClose={handleCloseAlert}
-        type={alertConfig.type}
-        title={alertConfig.title}
-        message={alertConfig.message}
+        type={success ? "success" : "error"}
+        title={success ? "Perfil actualizado" : "Error al actualizar"}
+        message={success ? "Tus datos se guardaron correctamente." : error || ""}
       />
     </div>
   );
