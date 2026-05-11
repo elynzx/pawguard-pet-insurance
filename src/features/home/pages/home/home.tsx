@@ -5,9 +5,13 @@ import { Faq } from "../../components/faq/faq";
 import { Benefits } from "../../components/benefits/benefits";
 import { PawPrintIcon, CatIcon, DogIcon } from "@phosphor-icons/react";
 import { Plans } from "../../components/plans/plans";
+import { useSmoothScroll } from "../../hooks/use-smooth-scroll";
 
 
 export function HomePage() {
+
+  useSmoothScroll();
+
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
 
