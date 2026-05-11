@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useSecurity } from "../hooks/use-security";
+import { useUpdatePassword } from "../hooks/use-update-password";
 import { FormInput } from "../../../common/components/form-input/form-input";
 import { AlertModal } from "../../../common/components/alert-modal/alert-modal";
 
 
 export const SecurityForm = () => {
   const [newPassword, setNewPassword] = useState("");
-  const { changePassword, loading, error, success, reset } = useSecurity();
+  const { changePassword, loading, error, success, reset } = useUpdatePassword();
 
   const handleUpdate = () => {
     if (newPassword.length < 6) return;
@@ -21,7 +21,7 @@ export const SecurityForm = () => {
   return (
     <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-6">
       <div className="space-y-4">
-        
+
         <FormInput
           label="Ingresar nueva Contraseña"
           type="password"
