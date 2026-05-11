@@ -33,7 +33,7 @@ body {
 @layer components {
     .btn-base {
         min-width: 180px;
-        border-radius: var(--radius-3xl);
+        border-radius: var(--radius-4xl);
         font-weight: var(--font-weight-black);
         font-family: var(--font-heading);
         display: flex;
@@ -44,6 +44,7 @@ body {
         border: none;
         cursor: pointer;
         letter-spacing: 0.5px;
+        font-size:large;
     }
     .input-base {
         width: 100%;
