@@ -6,10 +6,10 @@
     --font-heading: "Fredoka", sans-serif;
     --font-primary: "Karla", sans-serif;
 
-    --color-tertiary: #FFC654;
+    --color-tertiary: #ffc654;
     --color-secondary: #219ebc;
-    --color-secondary-light: #C8EAF7;
-    --color-primary: #4A4A4A;
+    --color-secondary-light: #c8eaf7;
+    --color-primary: #4a4a4a;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
 
 @layer components {
     .btn-base {
-        width: 180px;
+        min-width: 180px;
         border-radius: var(--radius-3xl);
         font-weight: var(--font-weight-black);
         font-family: var(--font-heading);
@@ -44,5 +44,24 @@ body {
         border: none;
         cursor: pointer;
         letter-spacing: 0.5px;
+    }
+    .input-base {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: #f9fafb;
+        border: 1px solid #f3f4f6;
+        color: var(--color-primary);
+        font-weight: 500;
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+    }
+
+    .input-base:focus {
+        border-color: var(--color-secondary);
+        background-color: #ffffff;
     }
 }
