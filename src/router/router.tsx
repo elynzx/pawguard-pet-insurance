@@ -6,6 +6,7 @@ import { CheckoutLayout } from "../common/layouts/checkout-layout";
 import { Login } from "../app/login/login";
 import { Profile } from "../app/profile/profile";
 import { ProtectedRoute } from "../features/auth/components/protected-route";
+import { Clinics } from "../app/clinics/clinics";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,11 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        element: <ProtectedRoute />, 
+        path: "veterinarias",
+        Component: Clinics,
+      },
+      {
+        element: <ProtectedRoute />,
         children: [
           {
             path: "profile",
