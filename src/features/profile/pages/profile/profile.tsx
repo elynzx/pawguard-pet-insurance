@@ -81,7 +81,7 @@ export function ProfilePage() {
               <div className="space-y-6">
                 <h2 className="text-2xl text-primary font-heading font-black flex items-center gap-3">
                   <PawPrintIcon size={28} weight="fill" className="text-primary" />
-                  Gestionar Mascota
+                  Datos de Mi Mascota
                 </h2>
                 <PetEditForm onCancel={() => setActiveTab('dashboard')} />
               </div>
@@ -91,7 +91,7 @@ export function ProfilePage() {
               <div className="space-y-6">
                 <h2 className="text-2xl font-heading font-black text-primary flex items-center gap-3">
                   <LockIcon size={28} weight="fill" className="text-primary" />
-                  Configuración de Seguridad
+                  Actualizar Contraseña
                 </h2>
                 <SecurityForm />
               </div>
