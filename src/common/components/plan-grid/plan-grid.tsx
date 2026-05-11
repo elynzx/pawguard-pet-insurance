@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGetPlans } from "../../hooks/use-plans";
-import { useCheckoutStore } from "../../store/use-checkout-store";
+import { useAppStore } from "../../store/use-app-store";
 import { PlanCard } from "../plan-card/plan-card";
 import type { PlanRow } from "../../types/type-props";
 import { CatIcon, DogIcon } from "@phosphor-icons/react";
@@ -29,8 +29,8 @@ export const PlanGrid = ({
   initialSpecies
 }: PlanGridProps) => {
   const { plans, loading, error } = useGetPlans();
-  const setSelectedPlan = useCheckoutStore((state) => state.setSelectedPlan);
-  const selectedPlanId = useCheckoutStore((state) => state.selectedPlan?.id);
+  const setSelectedPlan = useAppStore((state) => state.setSelectedPlan);
+  const selectedPlanId = useAppStore((state) => state.selectedPlan?.id);
 
   const [petType, setPetType] = useState<"dog" | "cat">("dog");
   const activeSpecies = initialSpecies || petType;
@@ -50,7 +50,7 @@ export const PlanGrid = ({
 
       {!initialSpecies && (
         <div className="flex justify-center mb-20">
-          <div className="flex gap-12 bg-white/80 rounded-full shadow-inner border border-gray-100 p-1">
+          <div className="flex gap-12 bg-white/80 rounded-full shadow-inner border border-gray-200 p-2">
             <TabButton
               active={petType === "dog"}
               onClick={() => setPetType("dog")}
@@ -73,6 +73,7 @@ export const PlanGrid = ({
             key={plan.id}
             {...plan}
             isSelected={plan.id === selectedPlanId}
+            isCheckout={!!initialSpecies}
             onClick={() => {
               setSelectedPlan(plan);
               if (onPlanSelect) onPlanSelect(plan);
