@@ -34,7 +34,7 @@ export const HeroForm = () => {
 
         <button
           onClick={handleContinue}
-          className="btn-base mt-3 py-4 bg-tertiary w-full hover:brightness-105 transition-all text-primary font-bold shadow-lg"
+          className="btn-base mt-3 py-4 bg-tertiary w-full hover:brightness-105 transition-all text-primary font-bold"
         >
           Ver Cobertura
         </button>
