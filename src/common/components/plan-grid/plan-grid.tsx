@@ -3,7 +3,7 @@ import { useGetPlans } from "../../hooks/use-plans";
 import { useAppStore } from "../../store/use-app-store";
 import { PlanCard } from "../plan-card/plan-card";
 import type { PlanRow } from "../../types/type-props";
-import { CatIcon, DogIcon } from "@phosphor-icons/react";
+import { CatIcon, CircleNotchIcon, DogIcon } from "@phosphor-icons/react";
 
 interface PlanGridProps {
   onPlanSelect?: (plan: PlanRow) => void;
@@ -37,6 +37,16 @@ export const PlanGrid = ({
   const filteredPlans = plans.filter(
     (plan) => plan.target_species === activeSpecies
   );
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4 text-primary">
+        <CircleNotchIcon size={48} weight="bold" className="animate-spin text-secondary" />
+        <p className="font-black italic text-xl">Cargando planes...</p>
+      </div>
+    );
+  }
+
 
   if (error)
     return (

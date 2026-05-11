@@ -1,4 +1,4 @@
-import { UserIcon, PawPrintIcon, ArrowLeftIcon } from "@phosphor-icons/react";
+import { UserIcon, PawPrintIcon} from "@phosphor-icons/react";
 import { useAppStore } from "../../../common/store/use-app-store";
 import { useNavigate } from "react-router";
 import { OwnerForm } from "../../../common/components/owner-form/owner-form";

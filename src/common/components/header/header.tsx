@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router"
 import Logo from "../../../assets/logo-black.svg"
-import { UserIcon, ListIcon, SignOutIcon } from "@phosphor-icons/react"
+import { UserIcon, ListIcon } from "@phosphor-icons/react"
 import { useState } from "react"
 import { useUser } from "../../providers/useUser"
 import { useAppStore } from "../../../common/store/use-app-store"
