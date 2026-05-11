@@ -1,5 +1,5 @@
 import { PencilSimpleIcon } from "@phosphor-icons/react";
-import { getInitials } from "../utils";
+import { getInitials } from "../utils/formatters";
 
 interface Props {
   name: string;
