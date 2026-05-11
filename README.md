@@ -1,73 +1,101 @@
-# React + TypeScript + Vite
+# PawGuard: Protección para Mascotas ♡
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Plataforma moderna de seguros para mascotas construida con React 18, Vite y TypeScript. Una solución integral para el registro de mascotas, selección de planes de salud y gestión de perfil de usuario.
 
-Currently, two official plugins are available:
+## Enlaces del Proyecto
+- **Demo en vivo:** [pawguard-pet-insurance.vercel.app](https://vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Acceso para Calificación
+> **Nota:** Para una revisión rápida, se puede utilizar el número de **DNI** como contraseña tras completar el flujo de registro (Checkout).
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Categoría            | Tecnología                    |
+| -------------------- | ----------------------------- |
+| **Framework**        | React 18 + Vite               |
+| **Lenguaje**         | TypeScript                    |
+| **Backend / Auth**   | Supabase (PostgreSQL)         |
+| **Estado Global**    | Zustand                       |
+| **Estilos**          | TailwindCSS                   |
+| **Iconografía**      | Phosphor Icons                |
+| **Mapas**            | React Leaflet (OpenStreetMap) |
 
-## Expanding the ESLint configuration
+## Prerrequisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Node.js** 18+
+- **npm** 9+
+- **Cuenta en Supabase** (para variables de entorno)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Inicio Rápido
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. **Clonar y configurar variables**
+   Crea un archivo `.env` en la raíz con tus credenciales de Supabase:
+   ```env
+   VITE_SUPABASE_URL=tu_url
+   VITE_SUPABASE_ANON_KEY=tu_key
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
+
+3. **Ejecutar servidor de desarrollo**
+   ```bash
+   npm run dev
+   ```
+
+## Arquitectura
+
+El proyecto utiliza una **Feature-Based Architecture**, separando la lógica por módulos independientes para asegurar escalabilidad y fácil mantenimiento.
+
+```
+src/
+├── app/ # Páginas principales y vistas de entrada
+├── assets/ # Imágenes, logos y recursos estáticos
+├── common/ # Componentes UI, hooks, store y layouts compartidos
+├── features/ # Módulos: auth, profile, checkout, clinics (Lógica propia)
+└── router/ # Configuración de rutas (React Router DOM)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Funcionalidades Principales (Key Features)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Smart Onboarding System:** Flujo de registro secuencial de 3 pasos (Usuario → Mascota → Plan) con validación preventiva y **persistencia de estado** vía Zustand, garantizando que el progreso se mantenga incluso tras recargar la página.
+- **Dynamic User Dashboard:** Panel centralizado que sincroniza en tiempo real los datos del titular, información técnica de las mascotas y visualización de planes activos consumiendo directamente desde la base de datos de **Supabase**.
+- **Security-First Architecture:** Gestión de identidad con rutas protegidas, políticas de seguridad **RLS (Row Level Security)** y sistema de cierre de sesión automático para garantizar la privacidad total de los datos del usuario.
+- **Hybrid Service Map:** Localizador interactivo de sedes mediante **React Leaflet**, diseñado bajo un modelo de negocio híbrido: atención directa en red afiliada o gestión de reembolsos externos vía correo electrónico.
+- **Responsive Experience:** Interfaz optimizada bajo el enfoque **Mobile-First**, utilizando un sistema de diseño minimalista con curvas suaves y componentes UI personalizados para máxima legibilidad.
+- **Self-Service Security:** Módulo independiente para la actualización de credenciales con validación de seguridad e integración directa con el servicio de autenticación de Supabase.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+## Reglas de Commits (Conventional Commits)
+
+Para mantener un historial limpio y profesional, utilizamos los siguientes prefijos:
+
+- `feat:` Nueva funcionalidad
+- `fix:` Corrección de un error
+- `docs:` Cambios en documentación
+- `style:` Cambios de diseño/formato que no afectan la lógica
+- `refactor:` Mejora de código que no añade funciones ni arregla bugs
+
+
+## Estándares de Ingeniería
+
+- **Feature-Based Architecture:** El código está organizado por dominios de negocio (Auth, Checkout, Profile), lo que facilita el mantenimiento.
+- **Clean Code & SRP:** Aplicación del principio de Responsabilidad Única en cada Hook y Service.
+- **TypeScript Ready:** Tipado estático para asegurar la integridad de los datos en toda la aplicación.
+- **Conventional Commits:** Historial de Git profesional siguiendo los estándares de la industria.
+
+## Resources
+
+- [React 18 Docs](https://react.dev) - Biblioteca principal para la interfaz de usuario.
+- [Vite Guide](https://vitejs.dev) - Herramienta de construcción y servidor de desarrollo.
+- [Supabase Docs](https://supabase.com) - Backend as a Service para Auth y Base de Datos.
+- [Zustand Docs](https://pmnd.rs) - Gestión de estado global simplificada.
+- [TailwindCSS](https://tailwindcss.com) - Framework de estilos basado en utilidades.
+- [Phosphor Icons](https://phosphoricons.com) - Set de iconos consistente y minimalista.
+- [React Leaflet](https://js.org) - Integración de mapas interactivos de OpenStreetMap.
+- [React Router](https://reactrouter.com) - Manejo de navegación y rutas protegidas.
+
+---
+*Built with ♡ by [Elynzx](https://github.com/elynzx)*
