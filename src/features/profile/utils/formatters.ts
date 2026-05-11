@@ -16,3 +16,12 @@ export const formatFullName = (firstName?: string, lastName?: string) => {
 export const getDistrictName = (districts: any[], districtId?: string) => {
   return districts.find(d => d.id === districtId)?.name || "No especificado";
 };
+
+export const SPECIES_MAP: Record<string, string> = {
+  dog: "Perro",
+  cat: "Gato",
+};
+
+export const formatSpecies = (species: string): string => {
+  return SPECIES_MAP[species.toLowerCase()] || species;
+};
