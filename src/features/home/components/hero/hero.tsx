@@ -2,6 +2,7 @@ import { HeroWaves } from "../../../../common/components/ui/header-wave"
 import HeroDog from "../../../../assets/hero-dog.svg"
 import HeroCat from "../../../../assets/hero-cat.svg"
 import { FirstAidIcon, ScissorsIcon, VideoConferenceIcon } from "@phosphor-icons/react"
+import { HeroForm } from "../hero-form/hero-form";
 
 const hero_benefits = [
   { id: 1, description: "Teleconsultas ilimitadas", icon: <VideoConferenceIcon weight="fill" /> },
@@ -9,31 +10,9 @@ const hero_benefits = [
   { id: 3, description: "Cobertura hasta s/7000 al año", icon: <FirstAidIcon weight="fill" /> },
 ]
 
-const HeroForm = () => {
-  return (
-    <div id="hero-form" className="col-span-2 bg-white p-6 rounded-2xl shadow-xl shadow-blue-900/5 max-w-md md:max-w-sm text-sm w-full border-2 border-secondary/40">
-      <div className="flex flex-col gap-3">
-        <input
-          type="text"
-          placeholder="Nombre de tu mascota"
-          className="w-full px-6 py-3 rounded-lg bg-secondary-light/30 focus:outline-none focus:ring-2 focus:ring-secondary font-medium"
-        />
-        <select className="w-full px-6 py-3 rounded-lg bg-secondary-light/30 focus:outline-none focus:ring-2 focus:ring-secondary font-medium appearance-none">
-          <option value="">¿Perro o Gato?</option>
-          <option value="perro">Perro</option>
-          <option value="gato">Gato</option>
-        </select>
-        <button className="btn-base mt-3 py-4 bg-tertiary w-full hover:brightness-105 transition-all">
-          Ver Cobertura
-        </button>
-      </div>
-    </div>
-  )
-}
-
 export const Hero = () => {
   return (
-    <section id="hero-section" className="relative w-full min-h-screen md:h-220 bg-linear-to-b from-secondary-light via-secondary-light to-secondary/70 flex items-start overflow-hidden z-10">
+    <section id="inicio" className="relative w-full min-h-screen md:h-220 bg-linear-to-b from-secondary-light via-secondary-light to-secondary/70 flex items-start overflow-hidden z-10">
 
       <div className="w-full md:max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 z-10 gap-6 mt-10 md:mt-24">
         <div className="md:col-start-1 col-span-1 flex flex-col gap-7 md:items-start">
