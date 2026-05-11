@@ -24,7 +24,7 @@ export const OwnerEditForm = ({ onCancel }: Props) => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-8">
+    <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-8 shadow-md">
       <OwnerForm />
       <div className="flex flex-col sm:flex-row justify-between gap-4 md:gap-8 pt-4 md:pt-0">
         <button

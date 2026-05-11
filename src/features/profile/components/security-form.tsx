@@ -19,7 +19,7 @@ export const SecurityForm = () => {
   };
 
   return (
-    <div className="w-full bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-6 flex flex-col items-center md:py-21">
+    <div className="w-full bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-6 flex flex-col items-center md:py-21 shadow-md">
       <div className="w-full max-w-sm mx-auto space-y-4">
         <FormInput
           label="Ingresar nueva Contraseña"

@@ -27,7 +27,7 @@ export const ProfileSidebar = ({
 
   return (
     <aside className="md:col-span-1 py-2">
-      <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 relative group">
+      <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 relative group shadow-md">
         <button
           onClick={onEdit}
           className="absolute top-6 right-6 p-2 text-secondary hover:bg-secondary/10 rounded-full transition-all opacity-0 group-hover:opacity-100 cursor-pointer"

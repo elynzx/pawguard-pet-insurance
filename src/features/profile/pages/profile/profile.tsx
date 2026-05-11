@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PawPrintIcon, UserIcon, LayoutIcon, CircleNotchIcon, LockIcon } from "@phosphor-icons/react";
 import { useAppStore } from "../../../../common/store/use-app-store";
 import { DashboardTabs } from "../../components/dashboard-tabs";
@@ -20,6 +20,11 @@ export function ProfilePage() {
   const districtName = getDistrictName(districts, ownerData.district_id || "");
   const fullName = formatFullName(ownerData.first_name, ownerData.last_name);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 text-primary">
@@ -29,8 +34,8 @@ export function ProfilePage() {
     );
   }
 
-return (
-    <main className="min-h-screen py-8 md:py-18 px-4 md:px-6 animate-fade-in bg-gray-50">
+  return (
+    <main className="min-h-screen py-8 md:py-18 px-4 md:px-6">
       <div className="max-w-7xl mx-auto space-y-8 md:space-y-10 mt-4 md:mt-6">
 
         <header className="space-y-6">
@@ -41,7 +46,7 @@ return (
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
+
           <ProfileSidebar
             name={fullName}
             dni={ownerData.dni || "—"}

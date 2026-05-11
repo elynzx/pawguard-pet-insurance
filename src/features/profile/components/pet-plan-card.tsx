@@ -22,12 +22,12 @@ export const PetPlanCard = ({
   const speciesName = formatSpecies(pet.species);
 
   return (
-    <div className="bg-white rounded-2xl border-2 border-gray-100 overflow-hidden transition-all">
+    <div className="bg-white rounded-2xl border-2 border-gray-100 overflow-hidden transition-all shadow-md">
       <div className="p-10 md:p-12">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12">
 
           <div className="flex flex-col md:flex-row items-center gap-8 w-full lg:w-auto">
-            <div className="w-32 h-32 bg-secondary/5 rounded-full flex items-center justify-center text-secondary border-2 border-secondary/10 flex-shrink-0">
+            <div className="w-32 h-32 bg-secondary/5 rounded-full flex items-center justify-center text-secondary border-2 border-secondary/10 shrink-0">
               <PawPrintIcon size={64} weight="fill" />
             </div>
 
