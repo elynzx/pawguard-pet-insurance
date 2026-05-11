@@ -2,11 +2,16 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import { CLINICS } from "../../data/clinics-data";
 import { Locations } from "../../components/locations/locations";
-import { MapPinIcon,  PhoneIcon, ShieldCheckIcon } from "@phosphor-icons/react";
+import { MapPinIcon, PhoneIcon, ShieldCheckIcon } from "@phosphor-icons/react";
+import { useEffect } from "react";
 
 export function ClinicsPage() {
   const LIMA_COORDS: [number, number] = [-12.046374, -77.042793];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <main className="min-h-screen py-12 px-6 mt-12 animate-fade-in">
       <div className="max-w-7xl mx-auto space-y-8">
