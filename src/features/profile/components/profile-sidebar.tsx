@@ -26,7 +26,7 @@ export const ProfileSidebar = ({
   ];
 
   return (
-    <aside className="md:col-span-1 space-y-6">
+    <aside className="md:col-span-1 py-2">
       <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 relative group">
         <button
           onClick={onEdit}
@@ -36,7 +36,7 @@ export const ProfileSidebar = ({
         </button>
 
         <div className="flex flex-col items-center text-center space-y-4">
-          <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center text-primary  text-3xl font-black">
+          <div className="w-24 h-24 bg-secondary-light text-secondary rounded-full flex items-center justify-center text-3xl font-black">
             {userInitials}
           </div>
           <div>
