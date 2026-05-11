@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { AlertModal } from "../../../common/components/alert-modal/alert-modal";
 import { StepPayment } from "../components/step-payment";
 import { StepPlan } from "../components/step-plan";
 import { StepUserForm } from "../components/step-user-form";
@@ -5,38 +7,54 @@ import { Stepper } from "../components/stepper";
 import { useCheckout } from "../hooks/use-checkout";
 
 export function CheckoutPage() {
-  const { step, nextStep, prevStep, goToStep } = useCheckout(); 
+  const checkout = useCheckout();
+
+  const handleFinish = () => {
+    window.location.href = "/login";
+  };
+
+    useEffect(() => {
+    if (checkout.step === 4) {
+      const timer = setTimeout(() => {
+        window.location.href = "/";
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [checkout.step]);
 
   return (
     <main className="min-h-screen bg-gray-50/50 py-12 px-6">
       <div className="max-w-7xl mx-auto">
-        <Stepper currentStep={step} />
+        <Stepper currentStep={checkout.step} />
 
         <div className="mt-10">
-          {step === 1 && (
-            <StepUserForm onNext={nextStep} />
+          {checkout.step === 1 && (
+            <StepUserForm onNext={checkout.nextStep} />
           )}
 
-          {step === 2 && (
-            <StepPlan onNext={nextStep} onBack={prevStep} />
+          {checkout.step === 2 && (
+            <StepPlan onNext={checkout.nextStep} onBack={checkout.prevStep} />
           )}
 
-          {step === 3 && (
+          {checkout.step === 3 && (
             <StepPayment
-              onBack={prevStep}
-              onEditProfile={() => goToStep(1)}
+              onBack={checkout.prevStep}
+              onEditProfile={() => checkout.goToStep(1)}
+              saveCheckout={checkout.saveCheckout}
+              loading={checkout.loading}
+              error={checkout.error}
             />
           )}
-          
-          {step === 4 && (
-            <div className="text-center space-y-4 animate-fade-in">
-              <h2 className="text-4xl font-black text-primary">¡Bienvenido a la familia!</h2>
-              <p className="text-gray-500">Tu mascota ya está protegida. Revisa tu perfil.</p>
-              <button onClick={() => window.location.href = "/profile"} className="btn-base bg-secondary text-white px-8">
-                Ir a mi Perfil
-              </button>
-            </div>
-          )}
+
+          <AlertModal
+            isOpen={checkout.step === 4}
+            onClose={handleFinish}
+            type="success"
+            title="¡Bienvenido a la familia!"
+            message="Tu mascota ya está protegida."
+            buttonLabel="Ir al Login"
+          />
         </div>
       </div>
     </main>
