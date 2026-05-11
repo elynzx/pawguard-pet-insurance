@@ -3,7 +3,8 @@
 > Plataforma moderna de seguros para mascotas construida con React 18, Vite y TypeScript. Una solución integral para el registro de mascotas, selección de planes de salud y gestión de perfil de usuario.
 
 ## Enlaces del Proyecto
-- **Demo en vivo:** [pawguard-pet-insurance.vercel.app](https://vercel.app)
+
+- **Live Demo:** https://pawguard-pet-insurance.vercel.app/
 
 ## Acceso para Calificación
 > **Nota:** Para una revisión rápida, se puede utilizar el número de **DNI** como contraseña tras completar el flujo de registro (Checkout).
