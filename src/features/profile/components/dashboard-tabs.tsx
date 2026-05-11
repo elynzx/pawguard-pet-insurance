@@ -2,6 +2,13 @@ import { PawPrintIcon, UserIcon, LayoutIcon, LockIcon } from "@phosphor-icons/re
 
 type TabId = 'dashboard' | 'profile' | 'pets' | 'security';
 
+const TABS_CONFIG: TabConfig[] = [
+  { id: 'dashboard', label: 'Panel General', icon: <LayoutIcon weight="fill" size={20} /> },
+  { id: 'profile', label: 'Mi Perfil', icon: <UserIcon weight="fill" size={20} /> },
+  { id: 'pets', label: 'Mis Mascotas', icon: <PawPrintIcon weight="fill" size={20} /> },
+  { id: 'security', label: 'Seguridad', icon: <LockIcon weight="fill" size={20} /> },
+];
+
 interface TabConfig {
   id: TabId;
   label: string;
@@ -13,17 +20,36 @@ interface DashboardTabsProps {
   setActiveTab: (id: string) => void;
 }
 
-const TABS_CONFIG: TabConfig[] = [
-  { id: 'dashboard', label: 'Panel General', icon: <LayoutIcon weight="fill" size={20} /> },
-  { id: 'profile', label: 'Mi Perfil', icon: <UserIcon weight="fill" size={20} /> },
-  { id: 'pets', label: 'Mis Mascotas', icon: <PawPrintIcon weight="fill" size={20} /> },
-  { id: 'security', label: 'Seguridad', icon: <LockIcon weight="fill" size={20} /> },
+interface TabItemProps {
+  tab: TabConfig;
+  isActive: boolean;
+  onClick: () => void;
+}
 
-];
+const TabItem = ({ tab, isActive, onClick }: TabItemProps) => {
+  const activeStyles = isActive
+    ? "text-primary border-secondary"
+    : "text-primary/30 hover:text-primary border-transparent";
+
+  return (
+    <button
+      onClick={onClick}
+      className={`pb-4 px-1 md:px-2 flex md:font-bold items-center gap-2 text-xs md:text-sm transition-all cursor-pointer relative shrink-0 ${activeStyles}`}
+    >
+      {tab.icon}
+      <span>{tab.label}</span>
+      {isActive && <ActiveIndicator />}
+    </button>
+  );
+};
+
+const ActiveIndicator = () => (
+  <div className="absolute bottom-0 left-0 w-full h-1 bg-secondary rounded-t-full" />
+);
 
 export const DashboardTabs = ({ activeTab, setActiveTab }: DashboardTabsProps) => {
   return (
-    <nav className="flex gap-8 border-b border-gray-200">
+    <nav className="flex gap-4 md:gap-8 border-b border-gray-100 overflow-x-auto scrollbar-hide no-scrollbar">
       {TABS_CONFIG.map((tab) => (
         <TabItem
           key={tab.id}
@@ -35,23 +61,3 @@ export const DashboardTabs = ({ activeTab, setActiveTab }: DashboardTabsProps) =
     </nav>
   );
 };
-
-const TabItem = ({ tab, isActive, onClick }: { tab: TabConfig, isActive: boolean, onClick: () => void }) => {
-  const activeStyles = isActive ? "text-primary" : "text-primary/50 hover:text-primary";
-
-  return (
-    <button
-      onClick={onClick}
-      className={`pb-4 px-2 flex items-center gap-2 font-bold transition-all cursor-pointer relative ${activeStyles}`}
-    >
-      {tab.icon}
-      <span>{tab.label}</span>
-
-      {isActive && <ActiveIndicator />}
-    </button>
-  );
-};
-
-const ActiveIndicator = () => (
-  <div className="absolute bottom-0 left-0 w-full h-1 bg-secondary" />
-);
