@@ -5,8 +5,7 @@ import { getPlans } from "../services/get-plans";
 export const useGetPlans = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const plans = usePlanStore((state) => state.plans);
-    const setPlans = usePlanStore((state) => state.setPlans);
+    const { plans, setPlans } = usePlanStore()
 
     useEffect(() => {
         setLoading(true);
