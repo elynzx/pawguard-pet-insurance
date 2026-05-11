@@ -19,7 +19,7 @@ export function ProfilePage() {
 
   const districtName = getDistrictName(districts, ownerData.district_id || "");
   const fullName = formatFullName(ownerData.first_name, ownerData.last_name);
-  
+
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4 text-primary">
@@ -29,16 +29,19 @@ export function ProfilePage() {
     );
   }
 
-  return (
-    <main className="py-18 px-6 mt-6 animate-fade-in">
-      <div className="max-w-7xl mx-auto space-y-10">
+return (
+    <main className="min-h-screen py-8 md:py-18 px-4 md:px-6 animate-fade-in bg-gray-50">
+      <div className="max-w-7xl mx-auto space-y-8 md:space-y-10 mt-4 md:mt-6">
 
         <header className="space-y-6">
-          <h1 className="text-4xl font-heading font-black text-primary">Mi Cuenta</h1>
+          <h1 className="text-3xl md:text-4xl font-heading font-black text-primary text-center md:text-left">
+            Mi Cuenta
+          </h1>
           <DashboardTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         </header>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
           <ProfileSidebar
             name={fullName}
             dni={ownerData.dni || "—"}
@@ -47,17 +50,17 @@ export function ProfilePage() {
             onEdit={() => setActiveTab('profile')}
           />
 
-          <section className="lg:col-span-2">
+          <section className="lg:col-span-2 w-full">
             {activeTab === 'dashboard' && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-heading font-black text-primary flex items-center gap-3">
-                  <LayoutIcon size={28} weight="fill" className="text-primary" />
+                <h2 className="text-xl md:text-2xl font-heading font-black text-primary flex items-center ml-10 md:ml-0 gap-3">
+                  <LayoutIcon size={28} weight="fill" />
                   Panel General
                 </h2>
                 <PetPlanCard
                   pet={{
                     name: petData.name || "Sin nombre",
-                    species: petData.species || "Mascota",
+                    species: petData.species || "dog",
                     breed: petData.breed || "Raza",
                     age: petData.age || "Edad"
                   }}
@@ -69,8 +72,8 @@ export function ProfilePage() {
 
             {activeTab === 'profile' && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-heading font-black text-primary flex items-center gap-3">
-                  <UserIcon size={28} weight="fill" className="text-primary" />
+                <h2 className="text-xl md:text-2xl font-heading font-black text-primary flex items-center gap-3 ml-10 md:ml-0">
+                  <UserIcon size={28} weight="fill" />
                   Mis Datos Personales
                 </h2>
                 <OwnerEditForm onCancel={() => setActiveTab('dashboard')} />
@@ -79,8 +82,8 @@ export function ProfilePage() {
 
             {activeTab === 'pets' && (
               <div className="space-y-6">
-                <h2 className="text-2xl text-primary font-heading font-black flex items-center gap-3">
-                  <PawPrintIcon size={28} weight="fill" className="text-primary" />
+                <h2 className="text-xl md:text-2xl font-heading font-black text-primary flex items-center gap-3 ml-10 md:ml-0">
+                  <PawPrintIcon size={28} weight="fill" />
                   Datos de Mi Mascota
                 </h2>
                 <PetEditForm onCancel={() => setActiveTab('dashboard')} />
@@ -89,14 +92,13 @@ export function ProfilePage() {
 
             {activeTab === 'security' && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-heading font-black text-primary flex items-center gap-3">
-                  <LockIcon size={28} weight="fill" className="text-primary" />
-                  Actualizar Contraseña
+                <h2 className="text-xl md:text-2xl font-heading font-black text-primary flex items-center gap-3 ml-10 md:ml-0">
+                  <LockIcon size={28} weight="fill" />
+                  Seguridad
                 </h2>
                 <SecurityForm />
               </div>
             )}
-
           </section>
         </div>
       </div>
