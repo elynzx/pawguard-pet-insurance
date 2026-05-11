@@ -19,9 +19,8 @@ export const SecurityForm = () => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-6">
-      <div className="space-y-4">
-
+    <div className="w-full bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-6 flex flex-col items-center md:py-21">
+      <div className="w-full max-w-sm mx-auto space-y-4">
         <FormInput
           label="Ingresar nueva Contraseña"
           type="password"
@@ -31,13 +30,14 @@ export const SecurityForm = () => {
         />
       </div>
 
-      <button
-        onClick={handleUpdate}
-        disabled={loading || newPassword.length < 6}
-        className="btn-base bg-tertiary px-10 disabled:bg-primary/40 disabled:text-white"
-      >
-        {loading ? "Cambiando..." : "Guardar Nueva Clave"}
-      </button>
+        <button
+          onClick={handleUpdate}
+          disabled={loading || newPassword.length < 6}
+          className="btn-base bg-tertiary px-10 disabled:bg-primary/60 disabled:text-white w-full md:w-sm py-4"
+        >
+          {loading ? "Cambiando..." : "Guardar Nueva Clave"}
+        </button>
+
 
       <AlertModal
         isOpen={success || !!error}

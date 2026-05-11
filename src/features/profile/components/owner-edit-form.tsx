@@ -24,12 +24,12 @@ export const OwnerEditForm = ({ onCancel }: Props) => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-8 animate-fade-in">
+    <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-8">
       <OwnerForm />
-      <div className="flex justify-between gap-15">
+      <div className="flex flex-col sm:flex-row justify-between gap-4 md:gap-8 pt-4 md:pt-0">
         <button
           onClick={onCancel}
-          className="btn-base w-full py-4 rounded-full bg-primary/40 text-white font-bold"
+          className="btn-base w-full py-4 rounded-full bg-primary/60 text-white font-bold"
           disabled={isUpdating}>
           Cancelar
         </button>

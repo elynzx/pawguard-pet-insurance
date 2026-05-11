@@ -79,9 +79,9 @@ export const PetPlanCard = ({
         </div>
       </div>
 
-      <div className="bg-gray-50 px-12 py-5 border-t border-gray-100 flex justify-between items-center">
-        <p className="text-[11px] font-bold text-primary/50 uppercase tracking-widest flex items-center justify-center gap-4">
-          <div className="w-4 h-4 bg-secondary rounded-full" /> Estatus: Verificado y Protegido
+      <div className="bg-secondary-light/30 px-12 py-5 border-t border-gray-100 flex justify-between items-center">
+        <p className="text-[11px] font-bold text-primary/80 uppercase tracking-widest flex items-center justify-center gap-4">
+          <div className="w-3 h-3 bg-secondary rounded-full animate-pulse" /> Estatus: Verificado y Protegido
         </p>
 
       </div>
