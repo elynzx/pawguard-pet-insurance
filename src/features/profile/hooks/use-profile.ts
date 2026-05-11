@@ -5,7 +5,7 @@ import { getFullProfile } from "../service/get-profile";
 
 export function useProfile() {
   const { user } = useUser();
-  const { setOwnerData, setPetData } = useAppStore();
+  const { setOwnerData, setPetData, setSelectedPlan } = useAppStore();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,14 +20,15 @@ export function useProfile() {
     setError(null);
 
     getFullProfile(user.id)
-      .then(({ profile, pet }) => {
+      .then(({ profile, pet, plan }) => {
         if (profile) setOwnerData(profile);
         if (pet) setPetData(pet);
+        if (plan) setSelectedPlan(plan);
       })
       .catch((error) => setError(error.message || "Error al obtener el perfil"))
       .finally(() => setLoading(false))
 
-  }, [user, setOwnerData, setPetData]);
+  }, [user, setOwnerData, setPetData, setSelectedPlan]);
 
   return { loading, error };
 }
