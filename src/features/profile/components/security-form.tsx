@@ -19,12 +19,11 @@ export const SecurityForm = () => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-3xl border-2 border-gray-100 space-y-6">
+    <div className="bg-white p-8 rounded-2xl border-2 border-gray-100 space-y-6">
       <div className="space-y-4">
-        <h3 className="text-xl font-black text-primary italic">Actualizar Contraseña</h3>
-
+        
         <FormInput
-          label="Nueva Contraseña"
+          label="Ingresar nueva Contraseña"
           type="password"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
@@ -35,7 +34,7 @@ export const SecurityForm = () => {
       <button
         onClick={handleUpdate}
         disabled={loading || newPassword.length < 6}
-        className="btn-base bg-secondary text-white px-10 disabled:bg-gray-300"
+        className="btn-base bg-tertiary px-10 disabled:bg-primary/40 disabled:text-white"
       >
         {loading ? "Cambiando..." : "Guardar Nueva Clave"}
       </button>
