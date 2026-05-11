@@ -30,7 +30,7 @@ export function ProfilePage() {
   }
 
   return (
-    <main className="min-h-screen py-12 px-6 mt-12 animate-fade-in">
+    <main className="py-18 px-6 mt-6 animate-fade-in">
       <div className="max-w-7xl mx-auto space-y-10">
 
         <header className="space-y-6">
