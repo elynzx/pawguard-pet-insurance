@@ -1,101 +1,146 @@
-# PawGuard: Protección para Mascotas ♡
+# PawGuard: Pet Protection ♡
 
-> Plataforma moderna de seguros para mascotas construida con React 18, Vite y TypeScript. Una solución integral para el registro de mascotas, selección de planes de salud y gestión de perfil de usuario.
+> PawGuard is a modern pet insurance platform tailored for the Peruvian market, built with React 18, Vite, and TypeScript. The application provides a seamless digital experience for pet owners through an intuitive multi-step onboarding system, real-time profile management, and interactive veterinary service mapping. Designed with a mobile-first approach and powered by Supabase.
 
-## Enlaces del Proyecto
-- **Demo en vivo:** [pawguard-pet-insurance.vercel.app](https://vercel.app)
+## Project Links
 
-## Acceso para Calificación
-> **Nota:** Para una revisión rápida, se puede utilizar el número de **DNI** como contraseña tras completar el flujo de registro (Checkout).
+- **Live Demo:** https://pawguard-pet-insurance.vercel.app/
+
+## Reviewer Access
+
+> **Note:** For quick testing purposes, users can use their **DNI number** as the password after completing the registration and checkout flow.
 
 ## Tech Stack
 
-| Categoría            | Tecnología                    |
+| Category             | Technology                    |
 | -------------------- | ----------------------------- |
 | **Framework**        | React 18 + Vite               |
-| **Lenguaje**         | TypeScript                    |
+| **Language**         | TypeScript                    |
 | **Backend / Auth**   | Supabase (PostgreSQL)         |
-| **Estado Global**    | Zustand                       |
-| **Estilos**          | TailwindCSS                   |
-| **Iconografía**      | Phosphor Icons                |
-| **Mapas**            | React Leaflet (OpenStreetMap) |
+| **Global State**     | Zustand                       |
+| **Styling**          | TailwindCSS                   |
+| **Icons**            | Phosphor Icons                |
+| **Maps**             | React Leaflet (OpenStreetMap) |
 
-## Prerrequisitos
+## Prerequisites
 
 - **Node.js** 18+
 - **npm** 9+
-- **Cuenta en Supabase** (para variables de entorno)
+- **Supabase Account** (for environment variables)
 
-## Inicio Rápido
+## Quick Start
 
-1. **Clonar y configurar variables**
-   Crea un archivo `.env` en la raíz con tus credenciales de Supabase:
+1. **Clone the project and configure environment variables**
+
+   Create a `.env` file in the project root with your Supabase credentials:
+
    ```env
-   VITE_SUPABASE_URL=tu_url
-   VITE_SUPABASE_ANON_KEY=tu_key
+   VITE_SUPABASE_URL=your_url
+   VITE_SUPABASE_ANON_KEY=your_key
    ```
 
-2. **Instalar dependencias**
+2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-3. **Ejecutar servidor de desarrollo**
+3. **Run the development server**
+
    ```bash
    npm run dev
    ```
 
-## Arquitectura
+## Architecture
 
-El proyecto utiliza una **Feature-Based Architecture**, separando la lógica por módulos independientes para asegurar escalabilidad y fácil mantenimiento.
+The project follows a **Feature-Based Architecture**, organizing business logic into independent modules to ensure scalability, maintainability, and clean separation of concerns.
 
-```
+```bash
 src/
-├── app/ # Páginas principales y vistas de entrada
-├── assets/ # Imágenes, logos y recursos estáticos
-├── common/ # Componentes UI, hooks, store y layouts compartidos
-├── features/ # Módulos: auth, profile, checkout, clinics (Lógica propia)
-└── router/ # Configuración de rutas (React Router DOM)
+├── app/        # Main application pages and entry views
+├── assets/     # Static assets, images, and branding
+├── common/     # Shared UI components, hooks, layouts, stores, and utilities
+├── features/   # Domain modules (auth, checkout, profile, clinics)
+└── router/     # Routing configuration (React Router DOM)
 ```
 
-## Funcionalidades Principales (Key Features)
+## Extended Project Structure
 
-- **Smart Onboarding System:** Flujo de registro secuencial de 3 pasos (Usuario → Mascota → Plan) con validación preventiva y **persistencia de estado** vía Zustand, garantizando que el progreso se mantenga incluso tras recargar la página.
-- **Dynamic User Dashboard:** Panel centralizado que sincroniza en tiempo real los datos del titular, información técnica de las mascotas y visualización de planes activos consumiendo directamente desde la base de datos de **Supabase**.
-- **Security-First Architecture:** Gestión de identidad con rutas protegidas, políticas de seguridad **RLS (Row Level Security)** y sistema de cierre de sesión automático para garantizar la privacidad total de los datos del usuario.
-- **Hybrid Service Map:** Localizador interactivo de sedes mediante **React Leaflet**, diseñado bajo un modelo de negocio híbrido: atención directa en red afiliada o gestión de reembolsos externos vía correo electrónico.
-- **Responsive Experience:** Interfaz optimizada bajo el enfoque **Mobile-First**, utilizando un sistema de diseño minimalista con curvas suaves y componentes UI personalizados para máxima legibilidad.
-- **Self-Service Security:** Módulo independiente para la actualización de credenciales con validación de seguridad e integración directa con el servicio de autenticación de Supabase.
+```bash
+src/
+├── app/
+├── assets/
+├── common/
+│   ├── components/
+│   ├── hooks/
+│   ├── layouts/
+│   ├── providers/
+│   ├── services/
+│   ├── store/
+│   ├── types/
+│   └── utils/
+├── features/
+│   ├── auth/
+│   ├── checkout/
+│   ├── clinics/
+│   ├── home/
+│   └── profile/
+├── router/
+├── styles/
+├── types/
+├── App.tsx
+└── main.tsx
+```
 
+## Key Features
 
-## Reglas de Commits (Conventional Commits)
+- **Smart Onboarding System:** Multi-step registration flow (Owner → Pet → Plan → Payment) with proactive validation and persistent global state management using Zustand, ensuring progress is preserved even after page reloads.
 
-Para mantener un historial limpio y profesional, utilizamos los siguientes prefijos:
+- **Dynamic User Dashboard:** Centralized dashboard that synchronizes owner information, pet profiles, and active insurance plans directly from the Supabase database in real time.
 
-- `feat:` Nueva funcionalidad
-- `fix:` Corrección de un error
-- `docs:` Cambios en documentación
-- `style:` Cambios de diseño/formato que no afectan la lógica
-- `refactor:` Mejora de código que no añade funciones ni arregla bugs
+- **Security-First Architecture:** Protected routes, authentication-based access control, Supabase RLS (Row Level Security) policies, and automatic session handling to guarantee user data privacy.
 
+- **Hybrid Veterinary Service Map:** Interactive clinic locator powered by React Leaflet and OpenStreetMap, supporting a hybrid service model with affiliated veterinary clinics and external reimbursement management via email.
 
-## Estándares de Ingeniería
+- **Responsive Experience:** Fully responsive mobile-first interface with a clean and modern visual identity, soft curves, and custom UI components optimized for readability and accessibility.
 
-- **Feature-Based Architecture:** El código está organizado por dominios de negocio (Auth, Checkout, Profile), lo que facilita el mantenimiento.
-- **Clean Code & SRP:** Aplicación del principio de Responsabilidad Única en cada Hook y Service.
-- **TypeScript Ready:** Tipado estático para asegurar la integridad de los datos en toda la aplicación.
-- **Conventional Commits:** Historial de Git profesional siguiendo los estándares de la industria.
+- **Self-Service Security Module:** Dedicated account security section allowing users to update credentials with integrated Supabase authentication validation.
+
+- **Localized Experience for Peru:** The platform is entirely in Spanish and adapted for Peruvian users, including district-based location handling and pricing displayed in **Peruvian Soles (S/.)**.
+
+## Commit Convention (Conventional Commits)
+
+To maintain a clean and professional Git history, the following commit prefixes are used:
+
+- `feat:` New feature
+- `fix:` Bug fix
+- `docs:` Documentation changes
+- `style:` UI or formatting changes without logic modifications
+- `refactor:` Code improvements without adding features or fixing bugs
+
+## Engineering Standards
+
+- **Feature-Based Architecture:** Code is structured by business domains (Auth, Checkout, Profile, Clinics), improving scalability and maintainability.
+
+- **Clean Code & SRP:** Strong application of the Single Responsibility Principle across hooks, services, and reusable components.
+
+- **TypeScript Ready:** Static typing ensures data consistency and safer development workflows across the application.
+
+- **Reusable UI System:** Shared UI components and layouts reduce duplication and improve consistency throughout the platform.
+
+- **Conventional Commits:** Git history follows industry-standard commit conventions for better collaboration and traceability.
 
 ## Resources
 
-- [React 18 Docs](https://react.dev) - Biblioteca principal para la interfaz de usuario.
-- [Vite Guide](https://vitejs.dev) - Herramienta de construcción y servidor de desarrollo.
-- [Supabase Docs](https://supabase.com) - Backend as a Service para Auth y Base de Datos.
-- [Zustand Docs](https://pmnd.rs) - Gestión de estado global simplificada.
-- [TailwindCSS](https://tailwindcss.com) - Framework de estilos basado en utilidades.
-- [Phosphor Icons](https://phosphoricons.com) - Set de iconos consistente y minimalista.
-- [React Leaflet](https://js.org) - Integración de mapas interactivos de OpenStreetMap.
-- [React Router](https://reactrouter.com) - Manejo de navegación y rutas protegidas.
+- [React 18 Docs](https://react.dev) — Core library for building the user interface.
+- [Vite Guide](https://vitejs.dev) — Build tool and development server.
+- [Supabase Docs](https://supabase.com) — Backend as a Service for authentication and database management.
+- [Zustand Docs](https://pmnd.rs) — Lightweight global state management.
+- [TailwindCSS](https://tailwindcss.com) — Utility-first CSS framework.
+- [Phosphor Icons](https://phosphoricons.com) — Consistent and minimal icon library.
+- [React Leaflet](https://react-leaflet.js.org) — Interactive OpenStreetMap integration for React.
+- [React Router](https://reactrouter.com) — Navigation and protected route handling.
 
 ---
+
 *Built with ♡ by [Elynzx](https://github.com/elynzx)*
